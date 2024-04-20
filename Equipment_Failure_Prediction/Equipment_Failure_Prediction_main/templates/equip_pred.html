@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<style>
+.equipred {
+    color: rgb(21, 10, 119);
+    font-weight: bold;
+    font-family: Arial, sans-serif; /* Change the font family as needed */
+    font-style: italic; /* Set the font style to italic */
+    font-size: 40px;
+}
+
+</style>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px;">
+      <div>
+          <img src="https://thumbs.dreamstime.com/b/letter-sj-logo-hexagon-shape-colorful-background-combination-design-business-company-identity-203777477.jpg"  style="width: 65px; height: 65px;">
+      </div>
+      <div >
+        <span class="equipred">EquiPred</span>
+    </div>
+    
+    
+  </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Equipment Failure Prediction</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict the Probability of Equipment Failure 
+        <br>
+        </h5>
+      </div>
+
+      <div class="row">
+        <form action='/predict' method="post" class="col s12">
+          <div class="row">
+            <div class="input-field col s4">
+              <label for="first_name"><b>FootFall</b></label>
+              <br>
+              <input placeholder="Enter FootFall Value" name="FootFall" id="first_name" type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="last_name"><b>Ambient Temperature </b></label>
+              <br>
+              <input id="last_name" name="atemp" placeholder="Enter Ambient Temperature "  type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="_name"><b>Self LR</b></label>
+              <br>
+              <input id="_name" name="selfLR" placeholder="Enter selfLR" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <label for="first_name"><b>ClinLR</b></label>
+              <br>
+              <input placeholder="Enter ClinLR" name="clinLR" id="first_name" type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="last_name"><b>DoleLR</b></label>
+              <br>
+              <input id="last_name" name="doleLR" placeholder="Enter DoleLR"  type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="_name"><b>PID</b></label>
+              <br>
+              <input id="_name" name="PID" placeholder="Enter PID" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <label for="first_name"><b>OutPressure</b></label>
+              <br>
+              <input placeholder="Enter outpressure" name="outpressure" id="first_name" type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="last_name"><b>InPressure</b></label>
+              <br>
+              <input id="last_name" name="InPressure" placeholder="Enter inpressure"  type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+              <label for="_name"><b>Equipment Temperature</b></label>
+              <br>
+              <input id="_name" name="temp" placeholder="Enter Temperature" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+            <a href="/dashboard" class="btn-large waves-effect waves-light blue">View Dashboard</a>
+          </div>
+        </form>
+      </div>
+
+      <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    
+        .alert {
+            background: linear-gradient(to right, #4111f0, #4708bb);
+            color: #fdfbfb;
+            padding: 8px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+<div {% if pred %} class="alert" {% endif %}>{{pred}}</div>
+
+    </div>
+  </div>
+
+  <br><br>
+
+  <footer class="page-footer orange">
+    <div class="footer-copyright orange-text">
+      <div class="container">
+        <b class="orange-text text-lighten-3"> Made by Siva Jegadeesh C B</b>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
